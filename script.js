@@ -34,6 +34,9 @@ function handleInputEvent() {
   preview.style.backgroundColor = farbe;
 
   document.getElementById('preview-button').addEventListener('click', () => {
+    if (!validateForm()) {
+      return;
+    }
     preview.classList.remove('hidden');
     document.getElementById('download-button').classList.remove('hidden');
     document.getElementById('preview-button').classList.add('hidden');
@@ -49,3 +52,20 @@ function handleInputEvent() {
 
 // Füge den Event-Listener hinzu und rufe die DOM-Manipulationsfunktion auf
 document.getElementById('info-form').addEventListener('input', handleInputEvent);
+
+// Funktion zur Validierung des Formulars
+function validateForm() {
+  const name = document.getElementById('name').value.trim();
+  const vorname = document.getElementById('vorname').value.trim();
+  const Projekte = document.getElementById('Projekte').value.trim();
+
+  // Überprüfen, ob Name, Vorname und Projekte ausgefüllt sind
+  if (name === '' || vorname === '' || Projekte === '') {
+    alert('Bitte geben Sie mindestens Ihren Namen, Vornamen und Projekte ein.');
+    return false;
+  }
+
+  // Weitere Validierungen hier ...
+
+  return true;
+}
