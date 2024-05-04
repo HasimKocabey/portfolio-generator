@@ -4,7 +4,7 @@
   "description": "Auf dieser Seite stelle ich meinen Portfolio Generator vor",
   "main": "script.js",
   "scripts": {
-    "test": "test"
+    "test": "jest"
   },
   "keywords": [
     "yes"
