@@ -4,8 +4,9 @@
 
 body {
   margin: 0;
-  font-family: 'Roboto', sans-serif;
-  background-color: #f5f5f5;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #f8f9fa; /* Hellgrauer Hintergrund */
+  color: #333; /* Dunkelgraue Textfarbe */
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -23,6 +24,7 @@ body {
   margin: 0;
   font-size: 2rem;
   font-weight: bold;
+  color: #007bff; /* Blaue Logo-Farbe */
 }
 
 #container {
@@ -36,9 +38,9 @@ body {
   display: grid;
   grid-template-columns: 1fr 2fr;
   gap: 2rem;
-  background-color: #ffffff;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #fff; /* Weißer Container-Hintergrund */
+  border-radius: 10px; /* Abgerundete Ecken */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Weicher Schatten */
 }
 
 #info-container {
@@ -58,9 +60,18 @@ textarea {
   width: 100%;
   padding: 0.5rem;
   margin-bottom: 1rem;
-  border: 1px solid #ccc;
+  border: 1px solid #ced4da; /* Hellgrauer Rand */
   border-radius: 5px;
-  font-size: 0.9rem;
+  font-size: 1rem; /* Größere Schriftgröße */
+  background-color: #e9e9e9; /* Hellgrauer Hintergrund */
+  color: #495057; /* Dunkelgraue Textfarbe */
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: #80bdff; /* Hellblauer Rand bei Fokus */
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Weicher Fokus-Schatten */
 }
 
 #info-form label {
@@ -69,61 +80,74 @@ textarea {
   font-weight: bold;
 }
 
+#preview-content {
+  padding: 2rem;
+  text-align: center; /* Zentriert den Inhalt */
+}
+
+#preview-content h1,
+#preview-content h2 {
+  margin-top: 1.5rem;
+  margin-bottom: 1rem; /* Größerer Abstand zwischen Titeln und Text */
+  font-size: 2rem; /* Größere Schriftgröße für die Titel */
+}
+
+#preview-content p {
+  margin-bottom: 1.5rem; /* Größerer Abstand zwischen den Absätzen */
+  font-size: 1.2rem; /* Größere Schriftgröße für den Text */
+  line-height: 1.6; /* Erhöhter Zeilenabstand für bessere Lesbarkeit */
+}
+
+#preview-content ul {
+  margin-bottom: 1.5rem;
+}
+
+#preview-content li {
+  margin-bottom: 1rem; /* Größerer Abstand zwischen Listenpunkten */
+}
+
+#preview-content img {
+  max-width: 20%; /* Maximale Breite auf 100% des Elternelements */
+  max-height: 20px; /* Maximale Höhe begrenzen */
+  width: auto; /* Automatische Breitenanpassung */
+  height: auto; /* Automatische Höhenanpassung */
+  border-radius: 10px; /* Abgerundete Ecken für Bilder */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Leichter Schatten für Bilder */
+}
+
+
+
 #preview-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  background-color: #f5f5f5;
-  border-radius: 100px;
+  justify-content: center;
+  background-color: #bdb6b6; /* Hintergrundfarbe */
+  border-radius: 15px; /* Abgerundete Ecken */
   padding: 2rem;
   grid-column: 2 / 3;
   grid-row: 1 / 3;
+  min-height: 600px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Weicher Schatten */
+}
+
+#preview {
+  width: 100%;
+  max-width: 800px;
+  min-height: 900px;
+  margin: auto;
+  border-radius: 15px; /* Abgerundete Ecken */
+  overflow: hidden;
+}
+
+#preview img {
+  width: 20%; /* Bildbreite auf 100% des Elternelements */
+  height: auto; /* Automatische Höhe basierend auf der Breite */
+  border-radius: 15px; /* Abgerundete Ecken */
+  object-fit: cover; /* Skaliere und schneide das Bild entsprechend ab */
 }
 
 
-#preview-img {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  object-fit: cover;
-  position: relative;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  grid-row: 1;
-  grid-column: 1;
-}
-
-#preview::before {
-  content: "";
-  display: block;
-  padding-top: 100%;
-}
-
-#preview-header {
-  position: relative;
-  top: 1rem;
-  right: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 1rem;
-  text-align: center;
-  width: 50px;
-  height: 50px;
-}
-
-#preview-img {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  object-fit: cover;
-  position: absolute;
-  top: 0;
-  left: 0;
-  transform: translate(50%, 50%);
-}
 
 .hidden {
   display: none;
@@ -155,4 +179,16 @@ ul {
 
 li {
   margin-bottom: 0.25rem;
+}
+
+.alert-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff; /* Hintergrundfarbe des Alerts */
+  border: 1px solid #ccc; /* Rand des Alerts */
+  padding: 20px; /* Innenabstand des Alerts */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Schatten um den Alert */
+  z-index: 9999; /* Z-Index, um sicherzustellen, dass der Alert über anderen Inhalten liegt */
 }

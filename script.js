@@ -1,5 +1,5 @@
 // Extrahiere die DOM-Manipulationen in eine separate Funktion
-function handleInputEvent() {
+ function handleInputEvent() {
   const name = document.getElementById('name').value;
   const vorname = document.getElementById('vorname').value;
   const kurzbeschreibung = document.getElementById('kurzbeschreibung').value;
@@ -15,8 +15,11 @@ function handleInputEvent() {
   const preview = document.getElementById('preview');
   preview.innerHTML = ''; 
 
+  // Überprüfen, ob ein Bild hochgeladen wurde
+  const fotoUrl = foto ? URL.createObjectURL(foto) : ''; // Wenn ein Bild hochgeladen wurde, erstelle die URL, sonst eine leere Zeichenkette
+
   const previewContent = `
-    <img class="center circle" src="${URL.createObjectURL(foto)}" alt="${name} ${vorname}" />
+    <img class="center circle" src="${fotoUrl}" alt="${name} ${vorname}" />
     <h1 class="center">${vorname} ${name}</h1>
     <p class="center">${kurzbeschreibung}</p>
     <p class="center">${wohnort}</p>
@@ -65,7 +68,33 @@ function validateForm() {
     return false;
   }
 
-  // Weitere Validierungen hier ...
+
 
   return true;
 }
+
+function showAlert(message) {
+  const alertContainer = document.createElement('div');
+  alertContainer.classList.add('alert-container');
+
+  const alertMessage = document.createElement('p');
+  alertMessage.textContent = message;
+  alertContainer.appendChild(alertMessage);
+
+  const okButton = document.createElement('button');
+  okButton.textContent = 'OK';
+  okButton.addEventListener('click', closeAlert);
+  alertContainer.appendChild(okButton);
+
+  document.body.appendChild(alertContainer);
+
+
+}
+
+
+
+
+
+
+
+

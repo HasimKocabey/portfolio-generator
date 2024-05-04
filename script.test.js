@@ -1,9 +1,11 @@
-// Importiere die Funktion, die du testen möchtest
-const { handleInput, validateForm } = require('./script');
+// Importiere die Funktionen, die du testen möchtest
+const { handleInput, handleInputEvent, } = require('./script');
 
 // Mocke die DOM-Elemente und -Funktionen
 jest.mock('./script', () => ({
   handleInput: jest.fn(), // Mocke die handleInput-Funktion
+  handleInputEvent: jest.fn(), // Mocke die handleInputEvent-Funktion
+  validateForm: jest.fn(), // Mocke die validateForm-Funktion
 }));
 
 // Mocke die DOM-Elemente 'preview' und 'preview-button'
@@ -24,6 +26,8 @@ const mockInfoFormElement = document.createElement('form');
 mockInfoFormElement.id = 'info-form';
 document.body.appendChild(mockInfoFormElement);
 
+// Mocke die global.alert Funktion
+global.alert = jest.fn();
 
 // Schreibe einen Testfall für handleInput-Funktion
 test('Teste handleInput Funktion', () => {
@@ -37,7 +41,21 @@ test('Teste handleInput Funktion', () => {
   expect(handleInput).toHaveBeenCalledWith(mockEvent);
 });
 
+// Schreibe einen Testfall für handleInputEvent-Funktion
+test('Teste handleInputEvent Funktion', () => {
+  // Simuliere ein Ereignisobjekt
+  const mockEvent = { target: { value: 'Testwert' } };
 
+  // Rufe die Funktion mit den simulierten Eingabewerten auf
+  handleInputEvent(mockEvent);
+
+  // Überprüfe, ob die Funktion aufgerufen wurde
+  expect(handleInputEvent).toHaveBeenCalled();
+
+  // Hier könnten weitere spezifische Überprüfungen für die Funktionalität von handleInputEvent erfolgen
+});
+
+// Test für Event-Listener in handleInput Funktion
 test('Teste Event-Listener in handleInput Funktion', () => {
   // Simuliere ein Ereignisobjekt mit Testdaten
   const mockEvent = { target: { value: 'Testwert' } };
@@ -56,17 +74,6 @@ test('Teste Event-Listener in handleInput Funktion', () => {
   // Überprüfe, ob der Input-Event auf dem Formular das erwartete Verhalten auslöst
   const inputForm = document.getElementById('info-form');
   inputForm.dispatchEvent(new Event('input'));
-  
 });
 
-// Schreibe einen Testfall für handleInput-Funktion
-test('Teste handleInput Funktion', () => {
-    // Simuliere ein Ereignisobjekt
-    const mockEvent = { target: { value: 'Testwert' } };
-  
-    // Rufe die Funktion mit den simulierten Eingabewerten auf
-    handleInput(mockEvent);
-  
-    // Überprüfe, ob die Funktion mit dem richtigen Ereignisobjekt aufgerufen wurde
-    expect(handleInput).toHaveBeenCalledWith(mockEvent);
-  });
+
