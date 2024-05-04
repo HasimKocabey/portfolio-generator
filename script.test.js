@@ -1,5 +1,5 @@
 // Importiere die Funktion, die du testen möchtest
-const { handleInput } = require('./script');
+const { handleInput, validateForm } = require('./script');
 
 // Mocke die DOM-Elemente und -Funktionen
 jest.mock('./script', () => ({
@@ -56,6 +56,17 @@ test('Teste Event-Listener in handleInput Funktion', () => {
   // Überprüfe, ob der Input-Event auf dem Formular das erwartete Verhalten auslöst
   const inputForm = document.getElementById('info-form');
   inputForm.dispatchEvent(new Event('input'));
-  // Füge hier weitere Überprüfungen für das erwartete Verhalten beim Input-Event hinzu, z.B. Überprüfung, ob die handleInput-Funktion aufgerufen wird
+  
 });
 
+// Schreibe einen Testfall für handleInput-Funktion
+test('Teste handleInput Funktion', () => {
+    // Simuliere ein Ereignisobjekt
+    const mockEvent = { target: { value: 'Testwert' } };
+  
+    // Rufe die Funktion mit den simulierten Eingabewerten auf
+    handleInput(mockEvent);
+  
+    // Überprüfe, ob die Funktion mit dem richtigen Ereignisobjekt aufgerufen wurde
+    expect(handleInput).toHaveBeenCalledWith(mockEvent);
+  });
