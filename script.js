@@ -1,4 +1,5 @@
-document.getElementById('info-form').addEventListener('input', () => {
+// Extrahiere die DOM-Manipulationen in eine separate Funktion
+function handleInputEvent() {
   const name = document.getElementById('name').value;
   const vorname = document.getElementById('vorname').value;
   const kurzbeschreibung = document.getElementById('kurzbeschreibung').value;
@@ -44,4 +45,7 @@ document.getElementById('info-form').addEventListener('input', () => {
     link.download = 'portfolio.html';
     link.click();
   });
-});
+}
+
+// Füge den Event-Listener hinzu und rufe die DOM-Manipulationsfunktion auf
+document.getElementById('info-form').addEventListener('input', handleInputEvent);
