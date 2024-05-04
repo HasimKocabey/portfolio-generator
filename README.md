@@ -1,4 +1,2 @@
 # portfolio-generator
 
-hfsdkfds
-fsdfdskjfds
