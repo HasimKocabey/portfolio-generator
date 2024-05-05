@@ -3,9 +3,9 @@
 version: 2
 
 build:
-  commands:
+   os: "windows"
+   commands:
     - make html
-  os: "windows-latest"
 
 
 # Optional: Füge zusätzliche Formate hinzu (z. B. PDF, ePub)
