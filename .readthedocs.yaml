@@ -5,7 +5,7 @@ version: 2
 build:
   os: "ubuntu-lts-latest"
   commands:
-    - pip install -r requirements.txt
+  
     - make html
 
 # Optional: Füge zusätzliche Formate hinzu (z. B. PDF, ePub)
