@@ -68,9 +68,7 @@ function validateForm() {
     return false;
   }
 
-
-
-  return true;
+    return true;
 }
 
 function showAlert(message) {
