@@ -3,8 +3,9 @@
 version: 2
 
 build:
-  os: "ubuntu-20.04"
-  tools: sphinx  # Beispiel: Verwende Sphinx als Build-Tool
+  commands:
+    - make html
+
 
 # Optional: Füge zusätzliche Formate hinzu (z. B. PDF, ePub)
 formats:
