@@ -4,6 +4,5 @@ version: 2
 
 build:
   os: "ubuntu-lts-latest"
-  commands:
-    - make html
+ 
 
