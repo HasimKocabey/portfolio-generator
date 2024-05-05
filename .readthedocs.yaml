@@ -4,7 +4,8 @@ version: 2
 
 # Setze das Betriebssystem, die Python-Version und andere benötigte Tools
 build:
-  os: windows
+  os: "ubuntu-20.04"
+
   
 
 
