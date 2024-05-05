@@ -2,13 +2,9 @@
 # Siehe hier für Details
 version: 2
 
-# Setze das Betriebssystem, die Python-Version und andere benötigte Tools
 build:
   os: "ubuntu-20.04"
-
-  
-
-
+  tools: sphinx  # Beispiel: Verwende Sphinx als Build-Tool
 
 # Optional: Füge zusätzliche Formate hinzu (z. B. PDF, ePub)
 formats:
