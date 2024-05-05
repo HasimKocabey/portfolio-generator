@@ -4,7 +4,7 @@ version: 2
 
 # Setze das Betriebssystem, die Python-Version und andere benötigte Tools
 build:
-  os: ubuntu-22.04
+  os: windows
   
 
 
