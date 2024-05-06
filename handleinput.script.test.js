@@ -52,7 +52,7 @@ test('Teste handleInputEvent Funktion', () => {
   // Überprüfe, ob die Funktion aufgerufen wurde
   expect(handleInputEvent).toHaveBeenCalled();
 
-  // Hier könnten weitere spezifische Überprüfungen für die Funktionalität von handleInputEvent erfolgen
+
 });
 
 // Test für Event-Listener in handleInput Funktion
