@@ -121,15 +121,24 @@ textarea:focus {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  background-color: #bdb6b6; /* Hintergrundfarbe */
-  border-radius: 15px; /* Abgerundete Ecken */
+  background-color: #bdb6b6;
+  border-radius: 15px;
   padding: 2rem;
   grid-column: 2 / 3;
   grid-row: 1 / 3;
   min-height: 600px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Weicher Schatten */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
+
+#preview-container > h2 {
+  margin-bottom: 1.5rem; /* Füge etwas Abstand unter der Überschrift hinzu */
+}
+
+#preview-button {
+  margin-top: auto; /* Button wird nach unten verschoben */
+}
+
+
 
 #preview {
   width: 100%;
