@@ -1,0 +1,1 @@
+CREATE TABLE Benutzer(Benuterid INTEGER NOT NULL PRIMARY KEY, Benutzername TEXT NOT NULL);
